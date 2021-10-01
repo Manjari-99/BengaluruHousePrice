@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GharDekho.com</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@450&display=swap" rel="stylesheet">
+</head>
+<body style="background: #70e1f5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+; font-family: 'Quicksand';">
+	<nav style="background-color: #58B19F;">
+		<div>
+            <a href="#" class="navbar-brand mt-1" style="color:#dfe6e9;">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" color="#dfe6e9" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+                    </svg>
+                GharDekho.com</a>
+            <a style="float:right;color:#dfe6e9;" class="navbar-brand mt-1">Cause your DREAM HOME IS PRICELESS</a>
+		</div>
+	</nav>
+    <div class="row">
+        <div class="col-md-5" style="margin-top:50px;">
+            <div align="center">
+                <img align="center" src="https://lh3.googleusercontent.com/proxy/8O_zPiBzQxeimqebLiiNygWZgf_sTYnW5xWixBc52eko6Dugqpt-KAHmQcSfKFquyZbNU2L3EL7F_9lb0fKTKLgXy1Xgncc" style="height: 500px; width: 500px; border-radius: 250px; margin-left:30px;">
+
+            </div>
+        </div>
+		<div class="col-md-6" style=" margin-left:50px; margin-top: 50px">
+			<div class="card" style="background-color:#F8EFBA">
+				<div class="card-header" align="center" style="background-color:#58B19F;color:#dfe6e9;">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" color="#dfe6e9" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+                    </svg>
+                        <h2>Welcome To GharDekho</h2>
+                </div>
+				<div class="card-body" style="color:#3c6382;">
+					<form action="/predict" method="post" style="color:#0a3d62" >
+                    <div class="row">
+                        <div class="form-group col-md-12" align="center">
+                        <label><h5>Select Location</h5></label><br>
+                        <select name="location" class="form-control">
+                            {% for i in loc %}
+                                <option value="{{i}}">{{i}}</option>
+                            {% endfor %}
+                        </select><br>
+                        </div>
+
+                    </div>
+                     <div class="row">
+                         <div class="form-group col-md-4" align="center">
+                         <label><h5>BHK</h5></label><br>
+                        <input type="number" class="form-control" name="bhk" placeholder="e.g.3">
+
+                        </div>
+                        <div class="form-group col-md-4" align="center">
+                            <label><h5>Square Feet Area</h5></label><br>
+                        <input type="number" class="form-control" name="total_sqft" placeholder="e.g.1200">
+                        </div>
+                        <div class="form-group col-md-4" align="center">
+                         <label><h5>Number of Bathrooms</h5></label><br>
+                        <input type="number" class="form-control" name="bath" placeholder="e.g.2">
+
+                    </div>
+                    </div>
+                        <div align="center">
+                            <input type="submit" class="btn btn-large btn-outline-info" value="Check House Price"><br><br>
+
+                        </div>
+                </form>
+                    <div align="center" >
+                         {% if response %}
+                            {% if response == -1 %}
+                              <h5 class="btn btn-danger btn-large">Enter All The Values</h5>
+                            {% else %}
+                                 {% if response ==-2 %}
+                                    <h5 class="btn btn-danger btn-large">Enter Proper Values</h5>
+                                {% else %}
+                                     <h3 class="btn btn-success btn-large">{{ (response) }}</h3>
+                                {% endif %}
+                        {% endif %}
+                        {% endif %}
+                    </div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+    <div align="center" class="mt-5" style="color:white;">@madeby Manjari Nandi Majumdar</div>
+</body>
+</html>
