@@ -1,2 +1,5 @@
-# GharDekho
-Bengaluru Real Estate Price Prediction Model
+Bengaluru is the fastest growing city in India with throbbing job opportunities and numerous educational centres. People from all over India are moving to the ‘Silicon City’ for a better livelihood. This is exactly where the project comes into play. 
+GharDekho.com is a user friendly Bengaluru Real Estate price prediction model. As the name suggests, users may enter the constraints of their notion of a perfect home and estimate a budget. The price is governed by the location, number of BHK, number of bathrooms and of course, the square feet area. Thus, they may get a clear-cut idea about their new residence based on their budget or may start saving for the dream home. GharDekho.com believes in the moto – 
+Cause your DREAM HOME IS PRICELESS. Practically speaking, it lets you have a peek into the otherwise finite price for your emotionally priceless home.
+The project has been developed in Python programming language with innate use of packages like pandas, numpy and scikit learn. The machine learning model used here is Random Forest Regressor from ensemble because of its high level of accuracy. Concepts of pickle and flask are also used to import our model and connect it with our front end in the work flow. Other programming languages used to build the user interface are HTML, CSS and concepts of Jinja.
+The best thing about this project is its utility in the real world and thus, it’s ‘quotient of benefit’ is quite high for the new city dwellers.
