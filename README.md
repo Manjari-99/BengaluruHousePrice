@@ -49,6 +49,7 @@ Flask is a web micro-framework that means it has little to no dependencies on ex
 Let’s first look at the dataset
 Bengaluru_House_Data.csv
 ![](/images/dataset.jpg)
+
 We next import the dataset
 We make a python file called House_Price_Predictor.csv in Google Colab. We import pandas and numpy modules. We also import matplotlib and seaborn for data visualization. We then create dataframe df from dataset.
 The next step is to clean the data
@@ -56,9 +57,11 @@ It involves steps like, removing null values and duplicate rows.
 We see that society column has a lot of null values.
 We plot the society with respect to price. We see that there is a lot of variation. For the same society there are instances of varied price. Also, there are more than 5000 null valued tuples. Hence, we drop this column.
 ![](/images/society.png)
+
 The next column that has a lot of null values is balcony.
 We see that balcony column has considerably low correlation with price, all the more, the graph shows low variation of price with balcony number. Hence, it is wise to remove this column.
 ![](/images/balcony.png)
+
 The next column with null values is bath. However, bath has moderate correlation, hence, removing the constraint shall be avoided. 73 is a small number with respect to the dataframe shape 13320. The next column considered is size. Size has only 16 null valued rows. Hence, we drop the null values rows.
 We next drop the duplicate rows.
 Data cleaning is complete.
@@ -68,12 +71,15 @@ We next remove unnecessary columns
 We start with area type.
 There is little to no variation in the plot. We label encode the area type values to find its correlation with price. Since the correlation is very low, we drop this column.
 ![](/images/areatype.png)
+
 We next consider location column.
 We see that there are a huge number of outliers, hence we remove it. We put all the locations with 10 and less value count in ‘Others’ value.
 ![](/images/location.png)
+
 We next label encode the values so that it can be trained in the model.
 We next move to the total square feet column. We see that this column contains non numerical values as well as ranges with a ‘-‘ character. Hence, we format it.
 ![](/images/formatting.png)
+
 We next go to size column and rename it to BHK by extracting the numerical value. 
 
 ### Creating the Interface
@@ -175,10 +181,12 @@ To fetch location we use Jinja
 
 
 ## Demo
+
+ Click on the gif below.
 ![](/images/input1.gif)
-click on the gif above.
+
+ Click on the gif below.
 ![](/images/input2.gif)
-click on the gif above.
 
 
 ## References
