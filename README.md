@@ -1,6 +1,7 @@
  
 # Bengaluru Real Estate Price prediction model
 
+![](/images/website_video.gif)
 
 ## Abstract
 
