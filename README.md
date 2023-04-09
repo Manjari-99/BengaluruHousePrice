@@ -1,6 +1,7 @@
  
 # Bengaluru Real Estate Price prediction model
 
+ Click on the gif below to have a look at the user web page
 ![](/images/website_video.gif)
 
 ## Abstract
@@ -74,15 +75,110 @@ We next label encode the values so that it can be trained in the model.
 We next move to the total square feet column. We see that this column contains non numerical values as well as ranges with a ‘-‘ character. Hence, we format it.
 ![](/images/formatting.png)
 We next go to size column and rename it to BHK by extracting the numerical value. 
-## Acknowledgment
 
-My sincere gratitude and thanks towards my project paper guide Sir Bandenawaz Bagwan.
-It was only with his backing and support that I could complete the report. He provided me all sorts of help and corrected me if ever seemed to make mistakes. I acknowledge my dearest parents for being such a nice source of encouragement and moral support that helped me tremendously in this aspect. I also declare to the best of my knowledge and belief that the Project Work has not been submitted anywhere else.
-The data is now ready for Training. We use train_test_split from sklearn model_selection with test size 0.3.
-We get an overall 0.62 r2_score.
-We now convert the models into a pickle file.
-Model creation is complete. 
+### Creating the Interface
+We first import pandas and flask and dump pickle files.
+We create a file called app.py that connects the html file with the imported pickle model. This serves as the backend.
 
+app = Flask(__name__)
+label_encoder = pickle.load(open('models/loc_encoder.pkl', 'rb'))
+random_forest_reg = pickle.load(open('models/rfr.pkl', 'rb'))
+
+We next copy all the unique locations from dataset df and past it in the code by creating a list of locations. Next, we sort the list.
+We next create flask route and create two functions, index to send the request to form.html and predict to fetch the values and return the predicted price to form.html for user display.
+
+@app.route('/')
+def index():
+    return render_template('form.html', loc=loc)
+@app.route('/predict', methods=['post'])
+def predict():
+    location = request.form.get('location')
+    total_sqft = request.form.get('total_sqft')
+    bath = request.form.get('bath')
+    bhk = request.form.get('bhk')
+    location = label_encoder.transform(np.array([location]))
+    # in case the user forgets to type in all the values
+
+Case handling empty inputs
+
+    if (location == "" or total_sqft == "" or bhk == "" or bath == ""):
+        return render_template('form.html', response=-1, loc=loc)
+
+Case handling improper inputs
+
+    elif(int(bhk)<=0 or int(total_sqft)<=0 or int(bath)<=0):
+       return render_template('form.html', response=-2,loc=loc)
+
+For correct predictions we predict with the random forest regressor that we had made earlier and imported through pickle.
+
+    else:
+        X = np.array([location, total_sqft, bath, bhk]).reshape(1, 4)
+        y = 0
+        y = random_forest_reg.predict(X)
+        y = y * 100000
+        answer = "Estimated Price: Rs " + str(round(float(y),2))
+        return render_template('form.html', response=answer, loc=loc)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+We now create form.html
+To fetch location we use Jinja
+
+                            {% for i in loc %}
+                                <option value="{{i}}">{{i}}</option>
+                            {% endfor %}
+                        </select><br>
+                        </div>
+
+                    </div>
+                     <div class="row">
+                         <div class="form-group col-md-4" align="center">
+                         <label><h5>BHK</h5></label><br>
+                        <input type="number" class="form-control" name="bhk" placeholder="e.g.3">
+
+                        </div>
+                        <div class="form-group col-md-4" align="center">
+                            <label><h5>Square Feet Area</h5></label><br>
+                        <input type="number" class="form-control" name="total_sqft" placeholder="e.g.1200">
+                        </div>
+                        <div class="form-group col-md-4" align="center">
+                         <label><h5>Number of Bathrooms</h5></label><br>
+                        <input type="number" class="form-control" name="bath" placeholder="e.g.2">
+
+                    </div>
+                    </div>
+                        <div align="center">
+                            <input type="submit" class="btn btn-large btn-outline-info" value="Check House Price"><br><br>
+
+                        </div>
+                </form>
+                    <div align="center" >
+                         {% if response %}
+                            {% if response == -1 %}
+                              <h5 class="btn btn-danger btn-large">Enter All The Values</h5>
+                            {% else %}
+                                 {% if response ==-2 %}
+                                    <h5 class="btn btn-danger btn-large">Enter Proper Values</h5>
+                                {% else %}
+                                     <h3 class="btn btn-success btn-large">{{ (response) }}</h3>
+                                {% endif %}
+                        {% endif %}
+                        {% endif %}
+                    </div>
+
+            </div>
+         </div>
+      </div>
+   </div><div align="center" class="mt-5" style="color:white;">@madeby Manjari Nandi Majumdar</div>
+</body></html>
+
+
+## Demo
+![](/images/input1.gif)
+click on the gif above.
+![](/images/input2.gif)
+click on the gif above.
 
 
 ## References
