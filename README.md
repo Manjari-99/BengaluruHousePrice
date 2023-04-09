@@ -41,6 +41,10 @@ Python pickle module is used for serializing and de-serializing a Python object 
 
 Flask is a web micro-framework that means it has little to no dependencies on external libraries. There are some pros and cons. Pros mean there are little dependencies to upgrade and to watch security bugs and cons means by introducing plugins we may increase the dependency. We can render request to a web page through flask.  Jinja2 is a template engine
 
+# Methodology
+
+## Creating the Model
+
 # Acknowledgment
 
 My sincere gratitude and thanks towards my project paper guide Sir Bandenawaz Bagwan.
