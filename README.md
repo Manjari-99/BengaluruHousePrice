@@ -1,6 +1,8 @@
  
 # Bengaluru Real Estate Price prediction model
 
+Link to GitHub Repo : [Bengaluru Real Estate Price Predictor](https://github.com/Manjari-99/BengaluruHousePrice.git)
+
  Click on the gif below to have a look at the user web page
 ![](/images/website_video.gif)
 
