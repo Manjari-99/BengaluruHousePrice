@@ -191,8 +191,8 @@ To fetch location we use Jinja
 
 ## References
 
-•	Hands-On Machine Learning with scikit-learn, keras and tensorflow. – Aurelien Geron
-•	Python Machine Learning - Sebastian Raschka
-•	Study Materials provided by my instructor.
-•	https://scikit-learn.org/stable/
+*•	Hands-On Machine Learning with scikit-learn, keras and tensorflow. – Aurelien Geron
+*•	Python Machine Learning - Sebastian Raschka
+*•	Study Materials provided by my instructor.
+*•	https://scikit-learn.org/stable/
 
