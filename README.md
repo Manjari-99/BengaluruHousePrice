@@ -193,8 +193,10 @@ To fetch location we use Jinja
 
 ## References
 
-*•	Hands-On Machine Learning with scikit-learn, keras and tensorflow. – Aurelien Geron
-*•	Python Machine Learning - Sebastian Raschka
-*•	Study Materials provided by my instructor.
-*•	https://scikit-learn.org/stable/
+•	Hands-On Machine Learning with scikit-learn, keras and tensorflow. – Aurelien Geron
+•	Python Machine Learning - Sebastian Raschka
+•	Study Materials provided by my instructor.
+•	https://scikit-learn.org/stable/
+
+Project Completion Certificate: [Project Completion Certificate.pdf](https://github.com/Manjari-99/BengaluruHousePrice/files/11219409/Project.Completion.Certificate.pdf)
 
