@@ -131,57 +131,8 @@ For correct predictions we predict with the random forest regressor that we had 
 if __name__ == "__main__":
     app.run(debug=True)
 We now create form.html
-To fetch location we use Jinja
-
-                            {% for i in loc %}
-                                <option value="{{i}}">{{i}}</option>
-                            {% endfor %}
-                        </select><br>
-                        </div>
-
-                    </div>
-                     <div class="row">
-                         <div class="form-group col-md-4" align="center">
-                         <label><h5>BHK</h5></label><br>
-                        <input type="number" class="form-control" name="bhk" placeholder="e.g.3">
-
-                        </div>
-                        <div class="form-group col-md-4" align="center">
-                            <label><h5>Square Feet Area</h5></label><br>
-                        <input type="number" class="form-control" name="total_sqft" placeholder="e.g.1200">
-                        </div>
-                        <div class="form-group col-md-4" align="center">
-                         <label><h5>Number of Bathrooms</h5></label><br>
-                        <input type="number" class="form-control" name="bath" placeholder="e.g.2">
-
-                    </div>
-                    </div>
-                        <div align="center">
-                            <input type="submit" class="btn btn-large btn-outline-info" value="Check House Price"><br><br>
-
-                        </div>
-                </form>
-                    <div align="center" >
-                         {% if response %}
-                            {% if response == -1 %}
-                              <h5 class="btn btn-danger btn-large">Enter All The Values</h5>
-                            {% else %}
-                                 {% if response ==-2 %}
-                                    <h5 class="btn btn-danger btn-large">Enter Proper Values</h5>
-                                {% else %}
-                                     <h3 class="btn btn-success btn-large">{{ (response) }}</h3>
-                                {% endif %}
-                        {% endif %}
-                        {% endif %}
-                    </div>
-
-            </div>
-         </div>
-      </div>
-   </div><div align="center" class="mt-5" style="color:white;">@madeby Manjari Nandi Majumdar</div>
-</body></html>
-
-
+ Code: [form.html](form.html)
+ 
 ## Demo
 
  Click on the gif below.
