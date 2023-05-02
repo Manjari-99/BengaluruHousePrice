@@ -26,7 +26,7 @@ Matplotlib library is used for ease of visualization of data.
 ## Aim
 
 The aim of this project is to serve its purpose of accurate predictions of updated house prices through a user friendly and aesthetically pleasing interface. The model can be used in a large scale as its practical benefits cannot be overlooked. The soul of this model lies in its performance in predictions. The project shall also be well structured to keep it ready for beneficial modifications in the future.
-Technology and Concepts used
+
 
 ## Machine Learning
 
